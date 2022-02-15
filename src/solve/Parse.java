@@ -13,12 +13,8 @@ public class Parse {
 		
 		int numOfClient = Integer.parseInt(lines.get(0));
 		
-		Solution.lClients.clear();
-		Solution.lIngredients.clear();
-		Solution.lLikedIngredients.clear();
-		Solution.lDisikedIngredients.clear();
-		Client.iTotalLikes = 0;
-		Client.iTotalDislikes = 0;
+		Solution.initialize();
+		Client.initialize();
 
 		for (int i = 0; i < numOfClient; i++) {
 			
@@ -30,7 +26,7 @@ public class Parse {
 				dislikes = new ArrayList<String>();
 			}
 
-			Solution.lClients.add(new Client(likes, dislikes));
+			Client.lClients.add(new Client(likes, dislikes));
 			Solution.lIngredients.addAll(likes);
 			Solution.lIngredients.addAll(dislikes);
 		}		

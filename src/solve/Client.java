@@ -1,9 +1,11 @@
 package solve;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client implements Comparable<Client>{
 
+	public static ArrayList<Client> lClients = new ArrayList<Client>();
 	public static int iTotalLikes = 0;
 	public static int iTotalDislikes = 0;
 
@@ -45,6 +47,16 @@ public class Client implements Comparable<Client>{
 			return 1;
 		}
 		return 0;
+	}
+
+	/**
+	 * 
+	 */
+	public static void initialize() {
+		
+		lClients.clear();
+		iTotalLikes = 0;
+		iTotalDislikes = 0;
 	}
 
 	/**

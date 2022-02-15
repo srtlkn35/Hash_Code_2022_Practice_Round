@@ -7,10 +7,19 @@ import java.util.Set;
 
 public class Solution {
 
-	public static ArrayList<Client> lClients = new ArrayList<Client>();
 	public static Set<String> lIngredients = new HashSet<String>();
 	public static Set<String> lLikedIngredients = new HashSet<String>();
 	public static Set<String> lDisikedIngredients = new HashSet<String>();
+
+	/**
+	 * 
+	 */
+	public static void initialize() {
+		
+		lIngredients.clear();
+		lLikedIngredients.clear();
+		lDisikedIngredients.clear();
+	}
 
 	/**
 	 * 
@@ -22,13 +31,13 @@ public class Solution {
 		String tmpStr = "";
 		
 
-		for (Client c : Solution.lClients) {
+		for (Client c : Client.lClients) {
 			c.calculateRank();
 		}
 		
-		Collections.sort(Solution.lClients);
+		Collections.sort(Client.lClients);
 
-		for (Client c : Solution.lClients) {
+		for (Client c : Client.lClients) {
 			addClientChoice(c);
 		}
 		

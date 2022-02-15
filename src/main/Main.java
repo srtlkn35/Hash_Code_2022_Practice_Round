@@ -1,5 +1,6 @@
 package main;
 
+import java.io.File;
 import java.util.ArrayList;
 import solve.Parse;
 import solve.Solution;
@@ -12,14 +13,13 @@ public class Main {
 		
 		long startTime = System.currentTimeMillis();
 
-		lInputFilenames.add("input/a_an_example.in.txt");
-		lInputFilenames.add("input/b_basic.in.txt");
-		lInputFilenames.add("input/c_coarse.in.txt");
-		lInputFilenames.add("input/d_difficult.in.txt");
-		lInputFilenames.add("input/e_elaborate.in.txt");
+		File folder = new File("input/");
+		File[] listOfFiles = folder.listFiles();
+		for (File file : listOfFiles) {
+			lInputFilenames.add(file.getParentFile().getName() + "/" + file.getName());
+		}
 		
 		for (String s : lInputFilenames) {
-			
 			FileIO fileio = new FileIO(s, s.replace("input/", "output/").replace(".txt", "_report.txt"));
 			fileio.readFile();
 			Parse.exec(fileio.getlInputFileLines());
